@@ -1,0 +1,93 @@
+<mvc:View
+    controllerName="smarttable.controller.SmartTable"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smart="sap.ui.comp.smarttable"
+    xmlns:smartfilter="sap.ui.comp.smartfilterbar"
+    xmlns:plugins="sap.m.plugins"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <smartfilter:SmartFilterBar
+            id="smartFilterbar"
+            entitySet="Products"
+            persistencyKey="SmartFilter_Explored"
+            enableBasicSearch="true"
+        >
+            <smartfilter:controlConfiguration>
+                <smartfilter:ControlConfiguration
+                    key="ID"
+                    visibleInAdvancedArea="true"
+                >
+                </smartfilter:ControlConfiguration>
+            </smartfilter:controlConfiguration>
+             <smartfilter:controlConfiguration>
+                <smartfilter:ControlConfiguration
+                    key="Name"
+                    visibleInAdvancedArea="true"
+                >
+                </smartfilter:ControlConfiguration>
+            </smartfilter:controlConfiguration>
+        </smartfilter:SmartFilterBar>
+        <smart:SmartTable
+            smartFilterId="smartFilterbar"
+            id="smartTable"
+            initiallyVisibleFields="ID,Name,Description,Price"
+            entitySet="Products"
+            useVariantManagement="false"
+            showRowCount="true"
+            useTablePersonalisation="false"
+            tableType="ResponsiveTable"
+            header="Product"
+            showPasteButton="true"
+            persistencyKey="SmartTable_Explored"
+            enableAutoBinding="true"
+            enableAutoColumnWidth="false"
+            class="sapUiResponsiveContentPadding"
+            demandPopin="true"
+            editTogglable="true"
+            
+        >
+            <smart:customToolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer />
+                    <Button
+                        text="생성"
+                        type="Emphasized"
+                        press="onCreate"
+                    />
+                    <Button
+                        text="삭제"
+                        type="Critical"
+                        press="onDelete"
+                    />
+                </OverflowToolbar>
+            </smart:customToolbar>
+            <Table
+                id="table"
+                mode="MultiSelect"
+                growing="true" growingThreshold="20" inset="true"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <ToolbarSpacer />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <!-- <columns>
+                        <Column>
+                            <Text text="Customers"></Text>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Input value="{Name1}" description="{Kunnr}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items> -->
+            </Table>
+        </smart:SmartTable>
+    </Page>
+</mvc:View>
