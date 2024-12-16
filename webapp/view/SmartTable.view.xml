@@ -3,7 +3,6 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:smart="sap.ui.comp.smarttable"
     xmlns:smartfilter="sap.ui.comp.smartfilterbar"
-    xmlns:plugins="sap.m.plugins"
     xmlns="sap.m"
 >
     <Page
@@ -20,15 +19,25 @@
                 <smartfilter:ControlConfiguration
                     key="ID"
                     visibleInAdvancedArea="true"
-                >
-                </smartfilter:ControlConfiguration>
+                />
             </smartfilter:controlConfiguration>
-             <smartfilter:controlConfiguration>
+            <smartfilter:controlConfiguration>
                 <smartfilter:ControlConfiguration
                     key="Name"
                     visibleInAdvancedArea="true"
-                >
-                </smartfilter:ControlConfiguration>
+                />
+            </smartfilter:controlConfiguration>
+            <smartfilter:controlConfiguration>
+                <smartfilter:ControlConfiguration
+                    key="Description"
+                    visibleInAdvancedArea="true"
+                />
+            </smartfilter:controlConfiguration>
+            <smartfilter:controlConfiguration>
+                <smartfilter:ControlConfiguration
+                    key="Price"
+                    visibleInAdvancedArea="true"
+                />
             </smartfilter:controlConfiguration>
         </smartfilter:SmartFilterBar>
         <smart:SmartTable
@@ -47,47 +56,35 @@
             enableAutoColumnWidth="false"
             class="sapUiResponsiveContentPadding"
             demandPopin="true"
-            editTogglable="true"
-            
         >
             <smart:customToolbar>
                 <OverflowToolbar>
                     <ToolbarSpacer />
+                      <Button
+                        type="Transparent"
+                        id="btnMultiEdit"
+                        text="Edit Multiple"
+                        enabled="false"
+                        press="onOpenMultiEdit"
+                    />
                     <Button
                         text="생성"
                         type="Emphasized"
-                        press="onCreate"
+                        press="onCreateProduct"
                     />
                     <Button
                         text="삭제"
-                        type="Critical"
+                        type="Reject"
                         press="onDelete"
                     />
                 </OverflowToolbar>
             </smart:customToolbar>
             <Table
                 id="table"
-                mode="MultiSelect"
-                growing="true" growingThreshold="20" inset="true"
-            >
-                <headerToolbar>
-                    <OverflowToolbar>
-                        <ToolbarSpacer />
-                    </OverflowToolbar>
-                </headerToolbar>
-                <!-- <columns>
-                        <Column>
-                            <Text text="Customers"></Text>
-                        </Column>
-                    </columns>
-                    <items>
-                        <ColumnListItem>
-                            <cells>
-                                <Input value="{Name1}" description="{Kunnr}" />
-                            </cells>
-                        </ColumnListItem>
-                    </items> -->
-            </Table>
+                growing="true"
+                growingThreshold="20"
+                inset="true"
+            />
         </smart:SmartTable>
     </Page>
 </mvc:View>

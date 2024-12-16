@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/V2/(S(fpwf10fggte1k0zxltvagmxj))/OData/OData.svc/",
+                "uri": "/V2/(S(j2psp3221i4eakgbmh2hubti))/OData/OData.svc/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
@@ -44,7 +44,7 @@
         }
     },
     "sap.ui5": {
-        "flexEnabled": true,
+        "flexEnabled": false,
         "dependencies": {
             "minUI5Version": "1.131.1",
             "libs": {
