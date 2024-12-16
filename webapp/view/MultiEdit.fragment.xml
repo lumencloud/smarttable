@@ -30,7 +30,7 @@
 								</sf:GroupElement>
 								<sf:GroupElement>
 									<sf:elements>
-										<smartmultiedit:Field propertyName="Desciption"/>
+										<smartmultiedit:Field propertyName="Description"/>
 									</sf:elements>
 								</sf:GroupElement>
 								<sf:GroupElement>
